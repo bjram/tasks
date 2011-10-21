@@ -159,6 +159,16 @@ bool operator>=(const CFraction& lhs, const CFraction& rhs)
         return false;
 }
 
+CFraction operator*(const CFraction& lhs, int rhs)
+{
+    return CFraction(lhs) *= rhs;
+}
+
+CFraction operator*(int lhs, CFraction &rhs)
+{
+    return CFraction(rhs) *= lhs;
+}
+
 ostream& operator<<(ostream& ostr, const CFraction& rhs)
 {
     return rhs.output(ostr);
@@ -210,10 +220,6 @@ int genNumber()
 {
     return rand() % 11 + 1;
 }
-
-
-
-
 
 int main()
 {
